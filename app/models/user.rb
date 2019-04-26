@@ -13,8 +13,9 @@ class User < ApplicationRecord
   validates :email, :gender, :preference, :username, presence: true
   # Uniqueness Validation
   validates :username, :email, uniqueness: true
+  validates :username, :email, uniqueness: {case_sensitive: false}
   # Age Validation
-  validates :age, numericality: {greater_than: 17}
+  # validates :age, numericality: {greater_than: 17}
 
   has_secure_password
 end
