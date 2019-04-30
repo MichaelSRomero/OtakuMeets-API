@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :personalities
   resources :answers
   resources :traits
   resources :matches
