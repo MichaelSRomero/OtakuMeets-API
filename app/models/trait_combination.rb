@@ -1,0 +1,2 @@
+class TraitCombination < ApplicationRecord
+end

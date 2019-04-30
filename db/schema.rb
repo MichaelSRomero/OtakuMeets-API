@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_30_140344) do
+ActiveRecord::Schema.define(version: 2019_04_30_144312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,14 +56,21 @@ ActiveRecord::Schema.define(version: 2019_04_30_140344) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trait_combinations", force: :cascade do |t|
+    t.bigint "personality_id"
+    t.bigint "trait_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["personality_id"], name: "index_trait_combinations_on_personality_id"
+    t.index ["trait_id"], name: "index_trait_combinations_on_trait_id"
+  end
+
   create_table "traits", force: :cascade do |t|
     t.string "title"
     t.string "symbol"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "personality_id"
-    t.index ["personality_id"], name: "index_traits_on_personality_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_04_30_140344) do
   add_foreign_key "answers", "traits"
   add_foreign_key "avatars", "characters"
   add_foreign_key "characters", "personalities"
-  add_foreign_key "traits", "personalities"
+  add_foreign_key "trait_combinations", "personalities"
+  add_foreign_key "trait_combinations", "traits"
   add_foreign_key "users", "characters"
 end

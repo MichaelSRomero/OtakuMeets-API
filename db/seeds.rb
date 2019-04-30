@@ -1,10 +1,28 @@
 require_relative '../lib/scraper.rb'
+##################################################
+#_________________PERSONALITIES__________________#
+##################################################
+personalities_array = {
+  {title: 'ISTJ'}, {title: 'ISFJ'},
+  {title: 'ISTP'}, {title: 'ISFP'},
+  {title: 'INTJ'}, {title: 'INFJ'},
+  {title: 'INTP'}, {title: 'INFP'},
+  {title: 'ESTJ'}, {title: 'ESFJ'},
+  {title: 'ESTP'}, {title: 'ESFP'},
+  {title: 'ENTJ'}, {title: 'ENFJ'},
+  {title: 'ENTP'}, {title: 'ENFP'},
+}
+
+personalities_array.each do |personality|
+  Personality.create(personality)
+  puts "Created #{personality[:title]}"
+end
 
 ##################################################
 #_____________________TRAITS_____________________#
 ##################################################
 traits_array = [
-  {title: 'Extraversion', symbol: 'E', description: "Extraversion is characterized by a preference to focus on the world outside the self. Extraverts are energized by social gatherings, parties and group activities. Extraverts are usually enthusiastic, gregarious and animated. Their communication style is verbal and assertive. Talking helps Extraverts think. They enjoy limelight."},
+  {title: 'Extraversion', symbol: 'E',description: "Extraversion is characterized by a preference to focus on the world outside the self. Extraverts are energized by social gatherings, parties and group activities. Extraverts are usually enthusiastic, gregarious and animated. Their communication style is verbal and assertive. Talking helps Extraverts think. They enjoy limelight."},
   {title: 'Introversion', symbol: 'I', description: "Introversion is characterized by a preference to focus on theinside world. Introverts are energized by spending time alone or with a small group. They find large group gatherings draining because they seek depth instead of breadth of relationships. Introverts process information internally. They are great listeners and think before talking."},
   {title: 'Sensing', symbol: 'S', description: "Sensors focus on the present. They are “here and now” people. They are factual and process information through the five senses. They see things as they are because they are concrete and literal thinkers. They trust what is certain. Sensors value realism and common sense. They especially like ideas with practical applications."},
   {title: 'Intuition', symbol: 'N', description: "Intuitive people live in the future and are immersed in the world of possibilities. They process information through patterns and impressions. Intuitive people value inspiration and imagination. They gather knowledge by reading between the lines. Their abstract nature attracts them toward deep ideas and concepts. They see the \"big picture\"."},

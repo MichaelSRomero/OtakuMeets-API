@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trait_combinations
   resources :personalities
   resources :answers
   resources :traits
