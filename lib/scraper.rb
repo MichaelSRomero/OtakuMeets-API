@@ -1,8 +1,8 @@
 def scraper(character_list, base_url, character_show)
   characters = []
 
-  character_list.each do |character_name|
-    character_url = base_url + character_name
+  character_list.each do |character_obj|
+    character_url = base_url + character_obj[:name]
     unparsed_page = HTTParty.get(character_url)
     parsed_page = Nokogiri::HTML(unparsed_page)
 
@@ -14,8 +14,18 @@ def scraper(character_list, base_url, character_show)
       # Character Descriptions
       name_array = parsed_page.css('.mainheader span.title').text.split(' ')
       name = name_array.slice(1..2).join(' ')
-      alias_index = parsed_page.css('.mainheader li')[0].text.index('(') - 1
-      character_alias = parsed_page.css('.mainheader li')[0].text.slice(0...alias_index)
+
+      character_alias = nil
+      alias_index = parsed_page.css('.mainheader li')[0]
+      # if alias doesn't exist then set to N/A
+      # else set alias
+      if alias_index == nil
+        character_alias = 'N/A'
+      else
+        new_index = alias_index.text.index('(') - 1
+        character_alias = parsed_page.css('.mainheader li')[0].text.slice(0...new_index)
+      end
+
       # finds the 'sex node' and then gets the sibling 'gender'
       sex_node = parsed_page.css('.infobox').children.css('th').find {|node| node.text.gsub(/[\s]/, '') == 'Sex'}
       gender = sex_node.css("~ td").text.gsub(/[\s]/, '')
@@ -32,7 +42,8 @@ def scraper(character_list, base_url, character_show)
         japanese_name: name_array[0],
         gender: gender,
         alias: character_alias,
-        show: character_show
+        show: character_show,
+        personality: character_obj[:personality]
       }
 
       database_character = Character.create(character)
@@ -79,7 +90,8 @@ def scraper(character_list, base_url, character_show)
         japanese_name: japanese_name,
         gender: gender,
         alias: character_alias,
-        show: character_show
+        show: character_show,
+        personality: character_obj[:personality]
       }
 
       database_character = Character.create(character)

@@ -2,7 +2,7 @@ require_relative '../lib/scraper.rb'
 ##################################################
 #_________________PERSONALITIES__________________#
 ##################################################
-personalities_array = {
+personalities_array = [
   {title: 'ISTJ'}, {title: 'ISFJ'},
   {title: 'ISTP'}, {title: 'ISFP'},
   {title: 'INTJ'}, {title: 'INFJ'},
@@ -11,12 +11,33 @@ personalities_array = {
   {title: 'ESTP'}, {title: 'ESFP'},
   {title: 'ENTJ'}, {title: 'ENFJ'},
   {title: 'ENTP'}, {title: 'ENFP'},
-}
+]
 
 personalities_array.each do |personality|
   Personality.create(personality)
   puts "Created #{personality[:title]}"
 end
+
+# IS Personality
+personality_ISTJ = Personality.find_by(title: 'ISTJ')
+personality_ISFJ = Personality.find_by(title: 'ISFJ')
+personality_ISTP = Personality.find_by(title: 'ISTP')
+personality_ISFP = Personality.find_by(title: 'ISFP')
+# IN Personality
+personality_INTJ = Personality.find_by(title: 'INTJ')
+personality_INFJ = Personality.find_by(title: 'INFJ')
+personality_INTP = Personality.find_by(title: 'INTP')
+personality_INFP = Personality.find_by(title: 'INFP')
+# ES Personality
+personality_ESTJ = Personality.find_by(title: 'ESTJ')
+personality_ESFJ = Personality.find_by(title: 'ESFJ')
+personality_ESTP = Personality.find_by(title: 'ESTP')
+personality_ESFP = Personality.find_by(title: 'ESFP')
+# EN Personality
+personality_ENTJ = Personality.find_by(title: 'ENTJ')
+personality_ENFJ = Personality.find_by(title: 'ENFJ')
+personality_ENTP = Personality.find_by(title: 'ENTP')
+personality_ENFP = Personality.find_by(title: 'ENFP')
 
 ##################################################
 #_____________________TRAITS_____________________#
@@ -35,6 +56,90 @@ traits_array = [
 traits_array.each do |trait|
   Trait.create(trait)
   puts "Created #{trait[:title]}"
+end
+
+##################################################
+#_______________TRAIT COMBINATIONS_______________#
+##################################################
+extraversion = Trait.find_by(title: 'Extraversion')
+introversion = Trait.find_by(title: 'Introversion')
+sensing = Trait.find_by(title: 'Sensing')
+intuition = Trait.find_by(title: 'Intuition')
+thinking = Trait.find_by(title: 'Thinking')
+feeling = Trait.find_by(title: 'Feeling')
+judging = Trait.find_by(title: 'Judging')
+perceiving = Trait.find_by(title: 'Perceiving')
+
+trait_combo_array = [
+  {trait: introversion, personality: Personality.find_by(title: 'ISTJ')},
+  {trait: introversion, personality: Personality.find_by(title: 'ISFJ')},
+  {trait: introversion, personality: Personality.find_by(title: 'ISTP')},
+  {trait: introversion, personality: Personality.find_by(title: 'ISFP')},
+  {trait: introversion, personality: Personality.find_by(title: 'INTJ')},
+  {trait: introversion, personality: Personality.find_by(title: 'INFJ')},
+  {trait: introversion, personality: Personality.find_by(title: 'INTP')},
+  {trait: introversion, personality: Personality.find_by(title: 'INFP')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ESTJ')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ESFJ')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ESTP')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ESFP')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ENTJ')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ENFJ')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ENTP')},
+  {trait: extraversion, personality: Personality.find_by(title: 'ENFP')},
+  {trait: sensing, personality: Personality.find_by(title: 'ISTJ')},
+  {trait: sensing, personality: Personality.find_by(title: 'ISFJ')},
+  {trait: sensing, personality: Personality.find_by(title: 'ISTP')},
+  {trait: sensing, personality: Personality.find_by(title: 'ISFP')},
+  {trait: sensing, personality: Personality.find_by(title: 'ESTJ')},
+  {trait: sensing, personality: Personality.find_by(title: 'ESFJ')},
+  {trait: sensing, personality: Personality.find_by(title: 'ESTP')},
+  {trait: sensing, personality: Personality.find_by(title: 'ESFP')},
+  {trait: intuition, personality: Personality.find_by(title: 'INTJ')},
+  {trait: intuition, personality: Personality.find_by(title: 'INFJ')},
+  {trait: intuition, personality: Personality.find_by(title: 'INTP')},
+  {trait: intuition, personality: Personality.find_by(title: 'INFP')},
+  {trait: intuition, personality: Personality.find_by(title: 'ENTJ')},
+  {trait: intuition, personality: Personality.find_by(title: 'ENFJ')},
+  {trait: intuition, personality: Personality.find_by(title: 'ENTP')},
+  {trait: intuition, personality: Personality.find_by(title: 'ENFP')},
+  {trait: thinking, personality: Personality.find_by(title: 'ISTJ')},
+  {trait: thinking, personality: Personality.find_by(title: 'ISTP')},
+  {trait: thinking, personality: Personality.find_by(title: 'INTJ')},
+  {trait: thinking, personality: Personality.find_by(title: 'INTP')},
+  {trait: thinking, personality: Personality.find_by(title: 'ESTJ')},
+  {trait: thinking, personality: Personality.find_by(title: 'ESTP')},
+  {trait: thinking, personality: Personality.find_by(title: 'ENTJ')},
+  {trait: thinking, personality: Personality.find_by(title: 'ENTP')},
+  {trait: feeling, personality: Personality.find_by(title: 'ISFJ')},
+  {trait: feeling, personality: Personality.find_by(title: 'ISFP')},
+  {trait: feeling, personality: Personality.find_by(title: 'INFJ')},
+  {trait: feeling, personality: Personality.find_by(title: 'INFP')},
+  {trait: feeling, personality: Personality.find_by(title: 'ESFJ')},
+  {trait: feeling, personality: Personality.find_by(title: 'ESFP')},
+  {trait: feeling, personality: Personality.find_by(title: 'ENFJ')},
+  {trait: feeling, personality: Personality.find_by(title: 'ENFP')},
+  {trait: judging, personality: Personality.find_by(title: 'ISTJ')},
+  {trait: judging, personality: Personality.find_by(title: 'ISFJ')},
+  {trait: judging, personality: Personality.find_by(title: 'INTJ')},
+  {trait: judging, personality: Personality.find_by(title: 'INFJ')},
+  {trait: judging, personality: Personality.find_by(title: 'ESTJ')},
+  {trait: judging, personality: Personality.find_by(title: 'ESFJ')},
+  {trait: judging, personality: Personality.find_by(title: 'ENTJ')},
+  {trait: judging, personality: Personality.find_by(title: 'ENFJ')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ISTP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ISFP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'INTP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'INFP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ESTP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ESFP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ENTP')},
+  {trait: perceiving, personality: Personality.find_by(title: 'ENFP')},
+]
+
+trait_combo_array.each_with_index do |trait_combo, i|
+  TraitCombination.create(trait_combo)
+  puts "Created Combination #{i + 1} of #{trait_combo_array.length}"
 end
 
 ##################################################
@@ -99,8 +204,33 @@ end
 ##################################################
 #______________CHARACTER SCRAPING________________#
 ##################################################
-naruto_characters = ["Sasuke_Uchiha", "Naruto_Uzumaki", "Kakashi_Hatake", "Nagato", "Sakura_Haruno", "Hinata", "Tsunade", "Mei"]
-fairytail_characters = ["Erza_Scarlet", "Lucy_Heartfilia", "Wendy_Marvell", "Mirajane_Strauss", "Natsu_Dragneel", "Gray_Fullbuster", "Gajeel_Redfox", "Mystogan"]
+naruto_characters = [
+  {name: "Sasuke_Uchiha", personality: personality_INTJ},
+  {name: "Naruto_Uzumaki", personality: personality_ENFP},
+  {name: "Kakashi_Hatake", personality: personality_INTP},
+  {name: "Nagato", personality: personality_INFP},
+  {name: "Madara_Uchiha", personality: personality_ENTJ},
+  {name: "Jugo", personality: personality_ISFP},
+  {name: "Neji", personality: personality_ISTJ},
+  {name: "Sakura_Haruno", personality: personality_ESFJ},
+  {name: "Hinata", personality: personality_ISFJ},
+  {name: "Tsunade", personality: personality_ESTJ},
+  {name: "Mei", personality: personality_ENFJ},
+  {name: "Konan", personality: personality_ISFJ},
+  {name: "Kurenai", personality: personality_INFJ}
+]
+fairytail_characters = [
+  {name: "Erza_Scarlet", personality: personality_ESTJ},
+  {name: "Lucy_Heartfilia", personality: personality_ENFP},
+  {name: "Wendy_Marvell", personality: personality_INFP},
+  {name: "Mirajane_Strauss", personality: personality_INFP},
+  {name: "Cana_Alberona", personality: personality_ESTP},
+  {name: "Natsu_Dragneel", personality: personality_ESFP},
+  {name: "Gray_Fullbuster", personality: personality_ISTP},
+  {name: "Gajeel_Redfox", personality: personality_ISTP},
+  {name: "Mystogan", personality: personality_INFJ},
+  {name: 'Loke', personality: personality_ENTP}
+]
 
 scraper(naruto_characters, "https://naruto.fandom.com/wiki/", "Naruto")
 scraper(fairytail_characters, "https://fairytail.fandom.com/wiki/", "Fairy Tail")

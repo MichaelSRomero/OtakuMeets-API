@@ -1,4 +1,5 @@
 class Trait < ApplicationRecord
   has_many :answers
-  belongs_to :personality
+  has_many :trait_combinations
+  has_many :personalities, through: :trait_combinations
 end
