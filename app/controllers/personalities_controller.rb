@@ -1,5 +1,5 @@
 class PersonalitiesController < ApplicationController
-  before_action :set_personality, only: [:show, :update, :destroy]
+  before_action :set_personality, only: [:update, :destroy]
 
   # GET /personalities
   def index
@@ -8,8 +8,10 @@ class PersonalitiesController < ApplicationController
     render json: @personalities
   end
 
-  # GET /personalities/1
+  # GET /personalities/esfp
   def show
+    personality_name = params[:type].upcase
+    @personality = Personality.find_by(title: personality_name)
     render json: @personality
   end
 

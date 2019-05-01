@@ -40,7 +40,12 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+    # Finds the personality and returns a random character
+    personality_name = params[:personality].upcase
+    @personality = Personality.find_by(title: personality_name)
+    @random_character = @personality.characters.sample
+
+    if @user.update(character: @random_character)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity

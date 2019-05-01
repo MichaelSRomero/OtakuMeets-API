@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :trait_combinations
-  resources :personalities
+  resources :personalities, except: [:show]
+  get '/personalities/:type', to: 'personalities#show'
   resources :answers
   resources :traits
   resources :matches
