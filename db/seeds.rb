@@ -238,5 +238,19 @@ scraper(fairytail_characters, "https://fairytail.fandom.com/wiki/", "Fairy Tail"
 ##################################################
 #_____________________USERS______________________#
 ##################################################
-User.create({email: "wendy@aim.com", password: "000111", gender: "Female", preference: "Both", username: "SpicyMuffin2000", age: 19})
-User.create({email: "Liikemike@aim.com", password: "000111", gender: "Male", preference: "Female", username: "Liikemike", age: 18})
+
+#---------------- BI USERS ----------------#
+User.create({email: "wendy@tom.com", password: "000111", gender: "Female", preference: "Both", username: "SpicyMuffin2000", age: 19, character: Character.find_by(english_name: "Erza Scarlet")})
+User.create({email: "tom@tom.com", password: "000111", gender: "Male", preference: "Both", username: "TomTheTom", age: 25, character: Character.find_by(english_name: "Hatake Kakashi")})
+
+#---------------- GAY USERS ----------------#
+User.create({email: "blander@tom.com", password: "000111", gender: "Male", preference: "Male", username: "BlandMaze", age: 20, character: Character.find_by(english_name: "Uchiha Madara")})
+User.create({email: "juan@tom.com", password: "000111", gender: "Male", preference: "Male", username: "JuanesElCaballo", age: 21, character: Character.find_by(english_name: "Nagato")})
+
+#---------------- LESBIAN USERS ----------------#
+User.create({email: "tinaturner@tom.com", password: "000111", gender: "Female", preference: "Female", username: "TinyTuna", age: 30, character: Character.find_by(english_name: "Lucy Heartfilia")})
+User.create({email: "janice@tom.com", password: "000111", gender: "Female", preference: "Female", username: "Mockalow4324", age: 27, character: Character.find_by(english_name: "Haruno Sakura")})
+
+#---------------- STRAIGHT USERS ----------------#
+User.create({email: "liikemike@tom.com", password: "000111", gender: "Male", preference: "Female", username: "Liikemike", age: 18, character: Character.find_by(english_name: "Uzumaki Naruto")})
+User.create({email: "nebula@tom.com", password: "000111", gender: "Male", preference: "Female", username: "Bboy_Nebzz", age: 25, character: Character.find_by(english_name: "Natsu Dragneel")})
