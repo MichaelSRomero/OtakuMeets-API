@@ -77,12 +77,16 @@ def scraper(character_list, base_url, character_show)
       parsed_character_gallery = Nokogiri::HTML(unparsed_character_gallery)
       images_array = []
 
-      images_array << parsed_page.css('nav.pi-navigation').css('img.lzyPlcHld')[0]['data-src']
+      img_link = parsed_page.css('nav.pi-navigation').css('img.lzyPlcHld')[0]['data-src']
+      slice_index = img_link.index("scale")
+
+      images_array << img_link.slice(0...slice_index)
 
       # Pushing only image src to array
       parsed_character_gallery.css('img.thumbimage').each_with_index do |noko_obj, i|
+        noko_slice_index = noko_obj['src'].index("scale")
         i >= 12 ? break : nil
-        i % 2 == 0 ? images_array << noko_obj['src'] : nil
+        i % 2 == 0 ? images_array << noko_obj['src'].slice(0...noko_slice_index) : nil
       end
 
       character = {

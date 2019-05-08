@@ -7,8 +7,9 @@ class Character < ApplicationRecord
     Personality.find(self[:personality_id]).title
   end
 
-  def avatars
-    avatars = Avatar.all.select {|avatar| avatar.character == self}
-    avatars.map {|avatar| avatar[:image_url]}
+  def avatar_urls
+    self.avatars.map { |avatar| avatar[:image_url] }
+    # avatars = Avatar.all.select {|avatar| avatar.character == self}
+    # avatars.map {|avatar| avatar[:image_url]}
   end
 end
