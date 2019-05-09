@@ -15,10 +15,11 @@ class MatchesController < ApplicationController
 
   # POST /matches
   def create
-    @match = Match.new(match_params)
 
+    @match = Match.new(match_params)
     if @match.save
-      render json: @match, status: :created, location: @match
+      render json: {mutual_match: @match.matchee.likes.include?(@match.matcher)}, status: :created, location: @match
+      # render json: MatchSerializer.new(@match), status: :created, location: @match
     else
       render json: @match.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class MatchesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def match_params
-      params.require(:match).permit(:references)
+      params.require(:match).permit(:matcher_id, :matchee_id)
     end
 end
