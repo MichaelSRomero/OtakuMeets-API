@@ -18,4 +18,5 @@ class User < ApplicationRecord
   # validates :age, numericality: {greater_than: 17}
 
   has_secure_password
+
 end
