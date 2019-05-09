@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :other_users]
 
   # GET /users
   def index
     @users = User.all
 
     render json: @users
+  end
+
+  def other_users
+    @remaining_users = User.all - @user.likes
+
+    # render json: {users: @remaining_users, empty: @remaining_users.length == 0}
+    render json: @remaining_users
   end
 
   # GET /users/1
