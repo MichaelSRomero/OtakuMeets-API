@@ -212,12 +212,32 @@ naruto_characters = [
   {name: "Madara_Uchiha", personality: personality_ENTJ},
   {name: "Jugo", personality: personality_ISFP},
   {name: "Neji", personality: personality_ISTJ},
+  {name: "Gaara", personality: personality_INFP},
+  {name: "Darui", personality: personality_ISTP},
+  {name: "Kimimaro", personality: personality_INFJ},
+  {name: "Kidomaru", personality: personality_ESTP},
+  {name: "Iruka_Umino", personality: personality_ESFJ},
+  {name: "Ibiki_Morino", personality: personality_ENTJ},
+  {name: "Yahiko", personality: personality_ENFJ},
+  {name: "Shikamaru_Nara", personality: personality_INTP},
+  {name: "Minato_Namikaze", personality: personality_ENFJ},
+  {name: "Tobirama_Senju", personality: personality_ISTJ},
+  {name: "Asuma_Sarutobi", personality: personality_ISTP},
   {name: "Sakura_Haruno", personality: personality_ESFJ},
   {name: "Hinata", personality: personality_ISFJ},
   {name: "Tsunade", personality: personality_ESTJ},
   {name: "Mei", personality: personality_ENFJ},
   {name: "Konan", personality: personality_ISFJ},
-  {name: "Kurenai", personality: personality_INFJ}
+  {name: "Kurenai", personality: personality_INFJ},
+  {name: "Ino_Yamanaka", personality: personality_ESFP},
+  {name: "Temari", personality: personality_ESTJ},
+  {name: "Kushina_Uzumaki", personality: personality_ENFP},
+  {name: "Karin", personality: personality_ESTJ},
+  {name: "Karura", personality: personality_INFJ},
+  {name: "Mito_Uzumaki", personality: personality_ENFJ},
+  {name: "Fuu", personality: personality_ESFP},
+  {name: "Yugito_Nii", personality: personality_ISTP},
+  {name: "Tenten", personality: personality_ENFJ}
 ]
 fairytail_characters = [
   {name: "Erza_Scarlet", personality: personality_ESTJ},
@@ -225,6 +245,11 @@ fairytail_characters = [
   {name: "Wendy_Marvell", personality: personality_INFP},
   {name: "Mirajane_Strauss", personality: personality_INFP},
   {name: "Cana_Alberona", personality: personality_ESTP},
+  {name: "Aquarius", personality: personality_ESTJ},
+  {name: "Virgo", personality: personality_INFJ},
+  {name: "Levy", personality: personality_INFJ},
+  {name: "Lisanna_Strauss", personality: personality_INFP},
+  {name: "Flare_Corona", personality: personality_ENFJ},
   {name: "Natsu_Dragneel", personality: personality_ESFP},
   {name: "Gray_Fullbuster", personality: personality_ISTP},
   {name: "Gajeel_Redfox", personality: personality_ISTP},
@@ -242,6 +267,18 @@ scraper(fairytail_characters, "https://fairytail.fandom.com/wiki/", "Fairy Tail"
 #---------------- BI USERS ----------------#
 User.create({email: "wendy@tom.com", password: "000111", gender: "Female", preference: "Both", username: "SpicyMuffin2000", age: 19, character: Character.find_by(english_name: "Erza Scarlet")})
 User.create({email: "tom@tom.com", password: "000111", gender: "Male", preference: "Both", username: "TomTheTom", age: 25, character: Character.find_by(english_name: "Hatake Kakashi")})
+User.create({email: "flare@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Flacy", age: 21, character: Character.find_by(english_name: "Flare Corona")})
+User.create({email: "aqua@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Macy-Chan", age: 27, character: Character.find_by(english_name: "Aquarius")})
+User.create({email: "lisa@tom.com", password: "000111", gender: "Female", preference: "Both", username: "LisaStraut", age: 27, character: Character.find_by(english_name: "Lisanna Strauss")})
+User.create({email: "fufu@tom.com", password: "000111", gender: "Female", preference: "Both", username: "FuFu", age: 27, character: Character.find_by(english_name: "Tenten")})
+User.create({email: "levy@tom.com", password: "000111", gender: "Female", preference: "Both", username: "McGarden", age: 22, character: Character.find_by(english_name: "Levy McGarden")})
+User.create({email: "virgo@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Vane$$a", age: 22, character: Character.find_by(english_name: "Virgo")})
+User.create({email: "mito@tom.com", password: "000111", gender: "Female", preference: "Both", username: "LoveFlower1", age: 18, character: Character.find_by(english_name: "Uzumaki Mito")})
+User.create({email: "karura@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Karuuuuuuu", age: 21, character: Character.find_by(english_name: "Karura")})
+User.create({email: "karin@tom.com", password: "000111", gender: "Female", preference: "Both", username: "CarineMc", age: 21, character: Character.find_by(english_name: "Karin")})
+User.create({email: "kushina@tom.com", password: "000111", gender: "Female", preference: "Both", username: "KushiKushi", age: 28, character: Character.find_by(english_name: "Uzumaki Kushina")})
+User.create({email: "temari@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Team7", age: 28, character: Character.find_by(english_name: "Temari")})
+User.create({email: "ino@tom.com", password: "000111", gender: "Female", preference: "Both", username: "Iknow", age: 28, character: Character.find_by(english_name: "Yamanaka Ino")})
 
 #---------------- GAY USERS ----------------#
 User.create({email: "blander@tom.com", password: "000111", gender: "Male", preference: "Male", username: "BlandMaze", age: 20, character: Character.find_by(english_name: "Uchiha Madara")})

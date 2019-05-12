@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  # GET /others/1
   def other_users
     @remaining_users = User.all - @user.likes
 
@@ -50,7 +51,13 @@ class UsersController < ApplicationController
     # Finds the personality and returns a random character
     personality_name = params[:personality].upcase
     @personality = Personality.find_by(title: personality_name)
-    @random_character = @personality.characters.sample
+    @character_list_by_gender = nil
+    if params[:gender].upcase == "OTHER"
+      @character_list_by_gender = @personality.characters
+    else
+      @character_list_by_gender = @personality.characters.select { |character| character.gender.upcase == params[:gender].upcase }
+    end
+    @random_character = @character_list_by_gender.sample
 
     if @user.update(character: @random_character)
       render json: @user
