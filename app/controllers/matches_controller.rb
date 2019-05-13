@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :update, :destroy]
+  before_action :set_match, only: [:show, :destroy]
 
   # GET /matches
   def index
@@ -20,15 +20,6 @@ class MatchesController < ApplicationController
     if @match.save
       render json: {mutual_match: @match.matchee.likes.include?(@match.matcher)}, status: :created, location: @match
       # render json: MatchSerializer.new(@match), status: :created, location: @match
-    else
-      render json: @match.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /matches/1
-  def update
-    if @match.update(match_params)
-      render json: @match
     else
       render json: @match.errors, status: :unprocessable_entity
     end

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :trait_combinations, only: [:create]
-  resources :personalities, except: [:show]
+  resources :personalities, only: [:index]
   get '/personalities/:type', to: 'personalities#show'
-  resources :answers
+  resources :answers, only: [:index, :show]
   resources :traits, only: [:index, :show]
-  resources :matches
-  resources :avatars
-  resources :characters
+  resources :matches, except: [:update]
+  resources :avatars, only: [:index, :show]
+  resources :characters, only: [:index, :show]
   resources :users, except: [:create]
   post '/signup', to: 'users#create'
   post '/login', to: 'users#log_in'
