@@ -204,6 +204,52 @@ end
 ##################################################
 #______________CHARACTER SCRAPING________________#
 ##################################################
+bleach_characters = [
+  {name: "Byakuya_Kuchiki", personality: personality_ISTJ},
+  {name: "Rukia_Kuchiki", personality: personality_ISTJ},
+  {name: "Nemu_Kurotsuchi", personality: personality_ISTJ},
+  {name: "Nanao_Ise", personality: personality_ISTJ},
+  {name: "Lisa", personality: personality_ISFP},
+  {name: "Aizen", personality: personality_INTJ},
+  {name: "Toshiro", personality: personality_INTJ},
+  {name: "Ryuken", personality: personality_INTJ},
+  {name: "Gin", personality: personality_INTP},
+  {name: "Ulquiorra_Cifer", personality: personality_INTP},
+  {name: "Kisuke_Urahara", personality: personality_INTP},
+  {name: "Mayuri_Kurotsuchi", personality: personality_ENTP},
+  {name: "Ichigo_Kurosaki", personality: personality_ISFP},
+]
+
+food_wars_characters = [
+  {character: {english_name: "Fuyumi Mizuhara", personality: personality_INTJ, japanese_name: "水原 冬美", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/7/78/Fuyumi_Mizuhara_%28anime%29.png/revision/latest?cb=20150722163357",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/8/83/Fuyumi_Mizuhara_young_mugshot_%28anime%29.png/revision/latest/?cb=20160322164134"]
+  },
+  {character: {english_name: "Nene Kinokuni", personality: personality_INTJ, japanese_name: "紀ノ国 寧々", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/5/57/Nene.png/revision/latest/?cb=20171126051146",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/f/fd/Nene_Kinokuni.png/revision/latest/?cb=20161116080736"]
+  },
+  {character: {english_name: "Mayumi Kurase", personality: personality_ISFP, japanese_name: "倉瀬 真由美", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/9/9d/Mayumi_Kurase_%28anime%29.png/revision/latest/?cb=20150709194701",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/0/05/Mayumi_Kurase.png/revision/latest/?cb=20131212122308"]
+  },
+  {character: {english_name: "Momo Akanegakubo", personality: personality_ISFP, japanese_name: "茜ヶ久保 もも", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/7/76/Momo_S3B_OP.png/revision/latest/?cb=20180411222939",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/b/b3/Momo%27s_Bucchi_Gloves.png/revision/latest/?cb=20171201074613"]
+  },
+  {character: {english_name: "Jun Shiomi", personality: personality_INTP, japanese_name: "汐見 潤", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/e/eb/Jun_Shiomi_%28anime%29.png/revision/latest/?cb=20150821212808",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/a/a5/Young_Jun_Shiomi_mugshot_%28anime%29.png/revision/latest/?cb=20160925225133"]
+  },
+  {character: {english_name: "Natsume Sendawara", personality: personality_ENTJ, japanese_name: "千俵なつめ", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/e/e8/Natsume_Sendawara_%28anime%29.png/revision/latest/?cb=20160323201254"]
+  },
+  {character: {english_name: "Anne", personality: personality_ENTJ, japanese_name: "アン", gender: "Female"},
+    images: ["https://vignette.wikia.nocookie.net/shokugekinosoma/images/0/0e/Anne_shows_pity.png/revision/latest/?cb=20180619192046",
+    "https://vignette.wikia.nocookie.net/shokugekinosoma/images/8/8a/Anne_%28Anime%29.png/revision/latest/?cb=20180619192316"]
+  },
+]
+
 naruto_characters = [
   {name: "Sasuke_Uchiha", personality: personality_INTJ},
   {name: "Naruto_Uzumaki", personality: personality_ENFP},
@@ -298,6 +344,8 @@ fairytail_characters = [
   {name: 'Loke', personality: personality_ENTP}
 ]
 
+scraper(bleach_characters, "https://bleach.fandom.com/wiki/", "Bleach")
+scraper(food_wars_characters, "https://foodwars.fandom.com/wiki/", "Food Wars")
 scraper(naruto_characters, "https://naruto.fandom.com/wiki/", "Naruto")
 scraper(fairytail_characters, "https://fairytail.fandom.com/wiki/", "Fairy Tail")
 
