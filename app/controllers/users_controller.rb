@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   end
 
   # GET /others/1
+  # returns an array of users that the current user hasn't swiped right (liked) yet
   def other_users
     @remaining_users = User.all - @user.likes
 
-    # render json: {users: @remaining_users, empty: @remaining_users.length == 0}
     render json: @remaining_users
   end
 
@@ -48,10 +48,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    # Finds the personality and returns a random character
+    # Finds the personality and returns a random character based on the users gender
     personality_name = params[:personality].upcase
     @personality = Personality.find_by(title: personality_name)
     @character_list_by_gender = nil
+
     if params[:gender].upcase == "OTHER"
       @character_list_by_gender = @personality.characters
     else

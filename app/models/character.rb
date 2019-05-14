@@ -9,7 +9,5 @@ class Character < ApplicationRecord
 
   def avatar_urls
     self.avatars.map { |avatar| avatar[:image_url] }
-    # avatars = Avatar.all.select {|avatar| avatar.character == self}
-    # avatars.map {|avatar| avatar[:image_url]}
   end
 end
