@@ -57,6 +57,7 @@ After you have followed API installation guide. Move on by forking and cloning t
 ## Landing Page
 <h1 align="center">
   <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
+  <img src="https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif" alt="Otaku Meets" width="400" style="display: inline-block;">
   <br>
 </h1>
 
@@ -79,6 +80,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Inspiration
 
-I built this site because I wanted to provide a different change and twist to online dating. We often first get attracted by another person via Physicalness; how they look, how they dress. And that's completely fine, but I felt the need to try and provide attraction through personalities. After all, what good is a beautiful person if they have an ugly personality? 
+I built this site because I wanted to provide a different change and twist to online dating. We often first get attracted by another person via Physicalness; how they look, how they dress. And that's completely fine, but I felt the need to try and provide attraction through personalities. After all, what good is a beautiful person if they have an ugly personality?
 
 This apps *styling* was heavily inspired by [**OKCupid**](https://www.okcupid.com/)'s landing page, signup & log in pages. As well as [**Tinder**](https://tinder.com/)'s layout design & functionality. I, by no means copied their CSS, but instead used their pages as reference and styled accordingly.
