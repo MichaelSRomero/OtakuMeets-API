@@ -1,24 +1,81 @@
-# README
+<h1 align="center">
+  <a href="https://github.com/MichaelSRomero/Waifu-front-end"><img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/luvdiscLogo-font.png" alt="Otaku Meets" width="400"></a>
+  <br>
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Otaku Meets is a blind-dating website for Anime enthusiasts. It is designed to help users communicate with each other based on their personality type by using the [**Myers Briggs Type Indicator**](https://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/home.htm?bhcp=1). For example: you wouldn't want to approach an introvert with extroverted scenarios. Instead you would ease them in slowly and not come on too strong.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+First you must fork and clone this Repository onto your terminal. After you have done so, you can fork and clone the Client-side repo which is located here: [**Otaku-Meets-Client**](https://github.com/MichaelSRomero/Waifu-front-end)
 
-* Database creation
+```
+<!-- API -->
+git clone https://github.com/MichaelSRomero/Waifu-API.git
+<!-- Front End -->
+git clone https://github.com/MichaelSRomero/Waifu-front-end.git
+```
 
-* Database initialization
+### Installing
 
-* How to run the test suite
+After cloning this repo, you must bundle install:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+```
 
-* Deployment instructions
+Make sure Postgres is on & create the database:
 
-* ...
+```
+rails db:create
+```
+
+Run Migrations:
+
+```
+rails db:migrate
+```
+
+Seed the database:
+
+```
+bundle db:seed
+```
+
+Run the server:
+
+```
+rails s
+```
+
+After you have followed API installation guide. Move on by forking and cloning the client side followed by the instructions located here: [**Client**](https://github.com/MichaelSRomero/Waifu-front-end)
+
+<h1 align="center">
+  <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
+  <br>
+</h1>
+
+## Built With
+
+* [Ruby on Rails](https://rubyonrails.org/) - API Back-End
+* [Bcrpyt](https://rubygems.org/gems/bcrypt/versions/3.1.12) - Password Hashing
+* [JWT](https://github.com/jwt/ruby-jwt) - Authentication & Authorization
+* [Nokogiri](https://nokogiri.org/) - Web Scraping
+* [Myers Briggs Type Indicator](https://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/home.htm?bhcp=1) - Personality Types
+
+
+## Authors
+
+* **Michael Romero** - *Initial work*
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Inspiration
+
+This apps *styling* was heavily inspired by [**OKCupid**](https://www.okcupid.com/)'s landing page, signup & log in pages. As well as [**Tinder**](https://tinder.com/)'s layout design & functionality. I, by no means copied their CSS, but instead used their pages as reference and styled accordingly.
