@@ -43,7 +43,7 @@ rails db:migrate
 Seed the database:
 
 ```
-bundle db:seed
+rails db:seed
 ```
 
 Run the server:
@@ -54,6 +54,7 @@ rails s
 
 After you have followed API installation guide. Move on by forking and cloning the client side followed by the instructions located here: [**Client**](https://github.com/MichaelSRomero/Waifu-front-end)
 
+## Landing Page
 <h1 align="center">
   <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
   <br>
@@ -77,5 +78,7 @@ After you have followed API installation guide. Move on by forking and cloning t
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Inspiration
+
+I built this site because I wanted to provide a different change and twist to online dating. We often first get attracted by another person via Physicalness; how they look, how they dress. And that's completely fine, but I felt the need to try and provide attraction through personalities. After all, what good is a beautiful person if they have an ugly personality? 
 
 This apps *styling* was heavily inspired by [**OKCupid**](https://www.okcupid.com/)'s landing page, signup & log in pages. As well as [**Tinder**](https://tinder.com/)'s layout design & functionality. I, by no means copied their CSS, but instead used their pages as reference and styled accordingly.
