@@ -16,18 +16,6 @@ class UsersController < ApplicationController
     render json: @remaining_users
   end
 
-  def conversations
-
-    recipient_convos = @user.recipient_conversations.map do |recipient_convo|
-      {
-        user: UserSerializer.new(User.find(recipient_convo.user_b_id)),
-        messages: recipient_convo.messages
-      }
-    end
-
-    render json: recipient_convos
-  end
-
   # GET /users/1
   def show
     render json: @user
