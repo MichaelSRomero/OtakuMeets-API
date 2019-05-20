@@ -1,5 +1,6 @@
 class ConversationSerializer < ActiveModel::Serializer
   attributes :id, :sender, :recipient
+  has_many :messages
 
   def sender
     self.object.user_a

@@ -10,10 +10,36 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def conversations
-    serialize_matches(self.object.senders + self.object.recipients)
+    # serialize_matches(self.object.senders + self.object.recipients)
+    # Serialize Conversations
+    # Make sure only Messages from that conversation appear
+    recipient_convos = self.object.recipient_conversations.map do |recipient_convo|
+      {
+        user: serialize_user(recipient_convo.user_b),
+        messages: serialize_messages(recipient_convo.messages)
+      }
+    end
   end
 
   private
+
+  def serialize_messages(messages)
+    messages.map do |message|
+      MessageSerializer.new(message)
+    end
+  end
+
+  def serialize_user(user)
+    character = getCharacter(user.character)
+    {
+      id: user.id,
+      email: user.email,
+      gender: user.gender,
+      username: user.username,
+      age: user.age,
+      character: character
+    }
+  end
 
   def serialize_matches(users)
     users.map do |user|

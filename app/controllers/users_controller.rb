@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy, :other_users]
+  before_action :set_user, only: [:show, :update, :destroy, :other_users, :conversations]
 
   # GET /users
   def index
@@ -14,6 +14,18 @@ class UsersController < ApplicationController
     @remaining_users = User.all - @user.likes
 
     render json: @remaining_users
+  end
+
+  def conversations
+
+    recipient_convos = @user.recipient_conversations.map do |recipient_convo|
+      {
+        user: UserSerializer.new(User.find(recipient_convo.user_b_id)),
+        messages: recipient_convo.messages
+      }
+    end
+
+    render json: recipient_convos
   end
 
   # GET /users/1

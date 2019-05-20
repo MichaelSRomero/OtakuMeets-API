@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :messages
   # Show Users that Like you
   # (matchee) mike.liked_by_users => ["Erica", "Chanel", "Deborah"] (matcher)
   has_many :matched_by_users, foreign_key: :matchee_id, class_name: 'Match'
