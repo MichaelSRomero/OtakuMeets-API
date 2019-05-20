@@ -19,6 +19,15 @@ class UserSerializer < ActiveModel::Serializer
         messages: serialize_messages(recipient_convo.messages)
       }
     end
+
+    sender_convos = self.object.sender_conversations.map do |sender_convo|
+      {
+        user: serialize_user(sender_convo.user_a),
+        messages: serialize_messages(sender_convo.messages)
+      }
+    end
+
+    recipient_convos + sender_convos
   end
 
   private
