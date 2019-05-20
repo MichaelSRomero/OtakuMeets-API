@@ -8,6 +8,13 @@ class User < ApplicationRecord
   has_many :matching_users, foreign_key: :matcher_id, class_name: 'Match'
   has_many :likes, through: :matching_users, source: :matchee
 
+  # Show Users that sent you messages
+  has_many :sender_conversations, foreign_key: :user_b_id, class_name: 'Conversation'
+  has_many :senders, through: :sender_conversations, source: :user_a
+  # Show Users that recieved your messages / Show Users you sent messages to
+  has_many :recipient_conversations, foreign_key: :user_a_id, class_name: 'Conversation'
+  has_many :recipients, through: :recipient_conversations, source: :user_b
+
   belongs_to :character, optional: true
   # Presence Validation
   validates :email, :gender, :preference, :username, presence: true

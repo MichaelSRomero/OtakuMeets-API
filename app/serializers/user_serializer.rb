@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :gender, :preference, :username, :age, :confirmed_matches
+  attributes :id, :email, :gender, :preference, :username, :age, :confirmed_matches, :conversations
   has_one :character
   # has_many :liked_by_users
   has_many :likes
@@ -7,6 +7,10 @@ class UserSerializer < ActiveModel::Serializer
   def confirmed_matches
     unserialized = self.object.likes.select { |user| user.likes.include?(self.object) }
     serialize_matches(unserialized)
+  end
+
+  def conversations
+    serialize_matches(self.object.senders + self.object.recipients)
   end
 
   private

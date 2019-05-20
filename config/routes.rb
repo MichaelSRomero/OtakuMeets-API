@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :avatars, only: [:index, :show]
   resources :characters, only: [:index, :show]
   resources :users, except: [:create]
+  resources :conversations, :messages
   post '/signup', to: 'users#create'
   post '/login', to: 'users#log_in'
   get '/other/:id', to: 'users#other_users'
