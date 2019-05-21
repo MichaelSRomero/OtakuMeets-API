@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   # POST /conversations
+  # Conversation must be created along with a message
   def create
     @conversation = Conversation.new(conversation_params)
     if @conversation.save
