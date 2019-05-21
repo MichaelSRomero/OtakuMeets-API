@@ -1,5 +1,5 @@
 class Conversation < ApplicationRecord
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   # A User who SENDS Messages
   belongs_to :user_a, class_name: 'User'
