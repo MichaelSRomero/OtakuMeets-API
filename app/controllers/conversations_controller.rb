@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(conversation_params)
     if @conversation.save
-      @message = Message.create(user: @conversation.user_a, conversation: @conversation, content: params[:conversation][:content])
+      @message = Message.create(user: @conversation.user_a, conversation: @conversation, content: params[:content])
 
       render json: ConversationSerializer.new(@conversation), status: :created, location: @conversation
     else
