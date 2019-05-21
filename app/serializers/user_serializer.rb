@@ -10,11 +10,9 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def conversations
-    # serialize_matches(self.object.senders + self.object.recipients)
-    # Serialize Conversations
-    # Make sure only Messages from that conversation appear
     recipient_convos = self.object.recipient_conversations.map do |recipient_convo|
       {
+        id: recipient_convo.id,
         user: serialize_user(recipient_convo.user_b),
         messages: serialize_messages(recipient_convo.messages)
       }
@@ -22,6 +20,7 @@ class UserSerializer < ActiveModel::Serializer
 
     sender_convos = self.object.sender_conversations.map do |sender_convo|
       {
+        id: sender_convo.id,
         user: serialize_user(sender_convo.user_a),
         messages: serialize_messages(sender_convo.messages)
       }
